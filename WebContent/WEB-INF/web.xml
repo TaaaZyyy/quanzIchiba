@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <filter>
+    <filter-name>EncodingFilter</filter-name>
+    <filter-class>fw.EncodingFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>EncodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+
+  <filter>
+    <filter-name>AuthFilter</filter-name>
+    <filter-class>login.AuthFilter</filter-class>
+    <init-param>
+      <param-name>exclude</param-name>
+      <param-value>/index.jsp,/css*,/Login</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>AuthFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+<!--
+  <filter>
+    <display-name>PrintAttributeListFilter</display-name>
+    <filter-name>PrintAttributeListFilter</filter-name>
+    <filter-class>debug.PrintAttributeListFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>PrintAttributeListFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  -->
+</web-app>
